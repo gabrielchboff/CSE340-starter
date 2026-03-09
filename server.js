@@ -13,6 +13,7 @@ const static = require("./routes/static")
 
 app.set("view engine", "ejs")
 app.set("views", "./views")
+app.use(expressLayouts)
 
 /* ***********************
  * Routes
