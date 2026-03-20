@@ -48,7 +48,8 @@ body {
   letter-spacing: 0.3px;
 }
 
-#tools a {
+#tools a,
+#tools span {
   text-decoration: none;
   color: var(--ink);
   font-weight: 600;
@@ -231,6 +232,20 @@ footer {
   .upgrades-section {
     order: 1;
   }
+
+  #inv-detail {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .inv-detail-image {
+    flex: 1 1 50%;
+  }
+
+  .inv-detail-info {
+    flex: 1 1 50%;
+    padding-left: 1.5rem;
+  }
 }
 
 /********* Inventory Grid ***********/
@@ -305,4 +320,72 @@ footer {
   border: 1px solid #fc8181;
   border-radius: 4px;
   margin: 1rem 0;
+}
+
+/********* Inventory Detail ***********/
+#inv-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.inv-detail-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.inv-detail-info h2 {
+  font-size: 1.4rem;
+  margin: 0 0 1rem;
+  color: var(--primary);
+}
+
+.inv-detail-info p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.inv-detail-info .detail-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.inv-detail-info .detail-description {
+  margin: 1rem 0;
+}
+
+/********* Error Page ***********/
+.error-container {
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-container p {
+  margin: 1rem 0;
+}
+
+.error-container a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.error-container a:hover,
+.error-container a:focus {
+  background: var(--primary-dark);
+}
+
+footer .error-link {
+  margin-left: 1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
 }
