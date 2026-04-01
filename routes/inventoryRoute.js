@@ -36,4 +36,18 @@ router.get("/type/:classificationId", utilities.handleErrors(invController.build
 // Route to build inventory detail view
 router.get("/detail/:invId", utilities.handleErrors(invController.buildByInventoryId));
 
+// Route to return inventory by classification as JSON
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
+// Route to build edit inventory view
+router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView))
+
+// Route to process update inventory
+router.post(
+  "/update/",
+  invValidate.inventoryRules(),
+  invValidate.checkUpdateData,
+  utilities.handleErrors(invController.updateInventory)
+)
+
 module.exports = router;
