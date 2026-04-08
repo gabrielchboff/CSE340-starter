@@ -675,3 +675,183 @@ input:required:valid {
 .account-form button[type="submit"]:focus {
   background: var(--primary-dark);
 }
+
+/********* Vehicle Reviews ***********/
+.vehicle-reviews {
+  margin-top: 2rem;
+  border-top: 2px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+.vehicle-reviews h2 {
+  margin: 0 0 1rem;
+  color: var(--ink);
+}
+
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.review-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.review-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.review-author {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.review-stars {
+  color: #e6a817;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.review-date {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.review-text {
+  margin: 0.5rem 0 0;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/********* Review Form ***********/
+.review-form {
+  max-width: 500px;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.review-form label {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.review-form textarea {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  width: 100%;
+  resize: vertical;
+}
+
+.review-form textarea:focus {
+  outline: 2px solid var(--primary);
+  border-color: var(--primary);
+}
+
+.review-form button[type="submit"] {
+  padding: 0.65rem 1.25rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 0 var(--primary-dark);
+}
+
+.review-form button[type="submit"]:hover,
+.review-form button[type="submit"]:focus {
+  background: var(--primary-dark);
+}
+
+.review-form .delete-btn {
+  background: #c53030;
+  box-shadow: 0 2px 0 #9b2c2c;
+}
+
+.review-form .delete-btn:hover,
+.review-form .delete-btn:focus {
+  background: #9b2c2c;
+}
+
+/********* Star Rating Input ***********/
+.star-rating-input {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.15rem;
+}
+
+.star-rating-input input[type="radio"] {
+  display: none;
+}
+
+.star-rating-input label {
+  font-size: 1.8rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.star-rating-input input[type="radio"]:checked ~ label,
+.star-rating-input label:hover,
+.star-rating-input label:hover ~ label {
+  color: #e6a817;
+}
+
+/********* Review Preview (delete confirmation) ***********/
+.review-preview {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.review-preview p {
+  margin: 0.4rem 0;
+}
+
+/********* Reviews Table (Account Management) ***********/
+.reviews-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.reviews-table th,
+.reviews-table td {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.reviews-table th {
+  background: var(--card-bg);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.reviews-table td a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.reviews-table td a:hover {
+  text-decoration: underline;
+}

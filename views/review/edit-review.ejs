@@ -1,0 +1,39 @@
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+<%- messages() %>
+
+<% if (errors) { %>
+<ul class="notice">
+<% errors.array().forEach(error => { %>
+  <li><%= error.msg %></li>
+<% }) %>
+</ul>
+<% } %>
+
+<p>Edit your review for the <strong><%= locals.vehicleName %></strong>.</p>
+
+<form class="review-form" action="/review/update" method="post">
+  <label for="review_rating">Rating:</label>
+  <div class="star-rating-input">
+    <% for (let i = 5; i >= 1; i--) { %>
+      <input type="radio" id="star<%= i %>" name="review_rating" value="<%= i %>"
+        <% if (locals.review_rating == i) { %> checked <% } %>
+        required>
+      <label for="star<%= i %>" title="<%= i %> star<%= i > 1 ? 's' : '' %>">&#9733;</label>
+    <% } %>
+  </div>
+
+  <label for="review_text">Your Review:</label>
+  <textarea id="review_text" name="review_text" required minlength="10" rows="5"><%= locals.review_text || '' %></textarea>
+
+  <input type="hidden" name="review_id" value="<%= locals.review_id %>">
+  <input type="hidden" name="vehicleName" value="<%= locals.vehicleName %>">
+
+  <button type="submit">Update Review</button>
+</form>
+
+<p><a href="/account/">Back to account management</a></p>

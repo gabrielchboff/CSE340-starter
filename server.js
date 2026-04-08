@@ -15,6 +15,7 @@ const static = require("./routes/static");
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 const accountRoute = require("./routes/accountRoute")
+const reviewRoute = require("./routes/reviewRoute")
 const utilities = require("./utilities")
 const session = require("express-session")
 const pool = require('./database/')
@@ -68,6 +69,9 @@ app.use("/inv", inventoryRoute)
 
 // Account routes
 app.use("/account", accountRoute)
+
+// Review routes
+app.use("/review", reviewRoute)
 
 /* ***********************
 * Express Error Handler

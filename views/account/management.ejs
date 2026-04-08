@@ -21,4 +21,37 @@
     <h3>Inventory Management</h3>
     <p><a href="/inv/">Manage Inventory</a></p>
   <% } %>
+
+  <h3>My Reviews</h3>
+  <% if (locals.reviews && reviews.length > 0) { %>
+    <table class="reviews-table">
+      <thead>
+        <tr>
+          <th>Vehicle</th>
+          <th>Rating</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% reviews.forEach(function(review) { %>
+          <tr>
+            <td><%= review.inv_year %> <%= review.inv_make %> <%= review.inv_model %></td>
+            <td class="review-stars">
+              <% for (let i = 1; i <= 5; i++) { %>
+                <% if (i <= review.review_rating) { %>&#9733;<% } else { %>&#9734;<% } %>
+              <% } %>
+            </td>
+            <td><%= new Date(review.review_date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) %></td>
+            <td>
+              <a href="/review/edit/<%= review.review_id %>">Edit</a> |
+              <a href="/review/delete/<%= review.review_id %>">Delete</a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>You haven't written any reviews yet.</p>
+  <% } %>
 <% } %>

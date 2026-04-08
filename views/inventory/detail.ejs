@@ -5,3 +5,36 @@
 } %>
 
 <%- detail %>
+
+<%- messages() %>
+
+<section class="vehicle-reviews">
+  <h2>Customer Reviews</h2>
+
+  <% if (locals.loggedin) { %>
+    <p><a href="/review/add/<%= inv_id %>" class="cta-button">Write a Review</a></p>
+  <% } else { %>
+    <p><a href="/account/login">Log in</a> to write a review.</p>
+  <% } %>
+
+  <% if (locals.reviews && reviews.length > 0) { %>
+    <div class="reviews-container">
+      <% reviews.forEach(function(review) { %>
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-author"><%= review.account_firstname %> <%= review.account_lastname.charAt(0) %>.</span>
+            <span class="review-stars">
+              <% for (let i = 1; i <= 5; i++) { %>
+                <% if (i <= review.review_rating) { %>&#9733;<% } else { %>&#9734;<% } %>
+              <% } %>
+            </span>
+            <span class="review-date"><%= new Date(review.review_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+          </div>
+          <p class="review-text"><%= review.review_text %></p>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p>No reviews yet. Be the first to review this vehicle!</p>
+  <% } %>
+</section>
